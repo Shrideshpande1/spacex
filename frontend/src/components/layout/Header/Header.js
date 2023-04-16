@@ -12,7 +12,7 @@ const options = {
   logoHoverSize: "10px",
   logoHoverColor: "#eb4034",
   link1Text: "Home",
-  link2Text: "Products",
+  link2Text: "Games",
   link3Text: "Contact",
   link4Text: "About",
   link1Url: "/",
@@ -38,10 +38,10 @@ const options = {
   profileIcon: true,
 
   ProfileIconElement: MdAccountCircle,
-  searchIcon: true,
+
 
   SearchIconElement: MdSearch,
-  cartIcon: true,
+ 
 
   CartIconElement: MdAddShoppingCart,
 };

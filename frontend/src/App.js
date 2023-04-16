@@ -10,6 +10,10 @@ import ProductDetails from "./components/Product/ProductDetails.js"
 import Games from './components/Product/Games';
 
 
+import SignUp from './components/user/Signup';
+import Login from './components/user/Login';
+
+
 
 function App() {
   
@@ -30,6 +34,8 @@ function App() {
  <Route extact path="/" element={<Home/>}/>
  <Route extact path="/product/:id" element={<ProductDetails/>}/>
  <Route extact path="/products" element={<Games/>}/>
+ <Route extact path="/login" element={<Login/>}/>
+ <Route extact path="/signup" element={<SignUp/>}/>
  
 
  </Routes>

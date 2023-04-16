@@ -9,11 +9,17 @@ import {
 import axios from "axios"
 
 
-export const getProduct=(keyword="")=>async(dispatch)=>{
+export const getProduct=(keyword="",category)=>async(dispatch)=>{
 try {
     dispatch({type:ALL_PRODUCT_REQUEST})
-    const {data}=await axios.get(`http://localhost:8080/api/g1/games?keyword=${keyword}`)
 
+    let link=`http://localhost:8080/api/g1/games?keyword=${keyword}`
+    if(category){
+        link=`http://localhost:8080/api/g1/games?keyword=${keyword}&category=${category}`
+    }
+    const {data}=await axios.get(link)
+
+ 
     
     dispatch({
         type:ALL_PRODUCT_SUCCESS,
