@@ -30,7 +30,7 @@ function SignUp() {
       name
     };
     try {
-      const res = await axios.post("http://localhost:8080/api/g1/register", post);
+      const res = await axios.post("https://cute-plum-wombat-sari.cyclic.app/api/g1/register", post);
       console.log(res.data);
     } catch (error) {
       console.log(error);
