@@ -13,9 +13,9 @@ export const getProduct=(keyword="",category)=>async(dispatch)=>{
 try {
     dispatch({type:ALL_PRODUCT_REQUEST})
 
-    let link=`http://localhost:8080/api/g1/games?keyword=${keyword}`
+    let link=`https://cute-plum-wombat-sari.cyclic.app/api/g1/games?keyword=${keyword}`
     if(category){
-        link=`http://localhost:8080/api/g1/games?keyword=${keyword}&category=${category}`
+        link=`https://cute-plum-wombat-sari.cyclic.app/api/g1/games?keyword=${keyword}&category=${category}`
     }
     const {data}=await axios.get(link)
 
@@ -39,7 +39,7 @@ export const getProductDetails=(id)=>async(dispatch)=>{
     console.log(id)
     try {
         dispatch({type:PRODUCT_DETAILS_REQUEST})
-        const {data}=await axios.get(`http://localhost:8080/api/g1/game/${id}`)
+        const {data}=await axios.get(`https://cute-plum-wombat-sari.cyclic.app/api/g1/game/${id}`)
      
         console.log( data)
         
