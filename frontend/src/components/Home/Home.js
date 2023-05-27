@@ -26,15 +26,15 @@ console.log("🚀 ~ file: Home.js:19 ~ Home ~ products:", products)
   {loading?<Loader/>: <Fragment>
   <MetaData title="E-COMMERCE"/>
   <div className="banner">
-<p>Welcome to Games</p>
-<h1>FIND AMAZING GAMES BELOW</h1>
+<p>Welcome to car-dekho</p>
+<h1>FIND AMAZING CARS BELOW</h1>
 <a href="#container">
   <button>
     Scroll
   </button>
   </a>
   </div>
-<h2 className="homeHeading">Featured Games</h2>
+<h2 className="homeHeading">Featured CARS</h2>
 <div className="container" id="container">
 {products && products.map(product=>(
   <Product key={product._id} products={product}/>

@@ -16,7 +16,7 @@ const ProductDetails = () => {
   const { product, loading, error } = useSelector(
     (state) => state.productDetails
   );
-  
+
   useEffect(() => {
     if (error) {
       alert.error(error);
@@ -28,7 +28,8 @@ const ProductDetails = () => {
 
   return (
     <>
-      {product && <Fragment>
+      {product && (
+        <Fragment>
           <div className="ProductDetails">
             <div>
               <img src={product.image} alt={product.name} />
@@ -39,54 +40,41 @@ const ProductDetails = () => {
             <div className="detailsBlock-2">
               <p>
                 {" "}
+                <strong>Status : </strong>
+                {product.status}
+              </p>
+              <p>
+                {" "}
                 <strong>description : </strong>
                 {product.description}
               </p>
               <p>
                 <strong>Place :</strong> {product.place}
               </p>
-              <p>
-                <strong>Max Limit :</strong> {product.limit}
-              </p>
 
               <p>
-                <strong> Start time:</strong> {product.starttime}
+                <strong> Colour:</strong> {product.color}
               </p>
               <p>
-                <strong> Start time:</strong> {product.endtime}
+                <strong> Mileage:</strong> {product.mileage}/lit
               </p>
             </div>
             <div className="detailsBlock-3">
               <h1>
                 {" "}
-                <strong>Players/Teams Name : </strong>
+                <strong>Key Points : </strong>
               </h1>
 
-              {product.players &&
-                product.players.map((ele) => (
-                  <div key={ele.name}>
-                    <li>{ele.name}</li>
+              {product.points &&
+                product.points.map((ele) => (
+                  <div key={ele._id}>
+                    <li>{ele.point}</li>
                   </div>
                 ))}
             </div>
-
-            <h2>To Enroll</h2>
-            <div>
-              {" "}
-              {product.limit > product.players.length ? (
-                <div>
-                  <input placeholder="Enter your name/Team name" />
-                  <button>ADD</button>
-                </div>
-              ) : (
-                <p>you can not fill the form</p>
-              )}
-              {}
-            </div>
           </div>
-        </Fragment>}
-        
-      
+        </Fragment>
+      )}
     </>
   );
 };

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import {Link} from "react-router-dom"
+import "./Signup.css"
 function SignUp() {
 
   const [email, setEmail] = useState('');
@@ -30,15 +31,16 @@ function SignUp() {
       name
     };
     try {
-      const res = await axios.post("https://cute-plum-wombat-sari.cyclic.app/api/g1/register", post);
-      console.log(res.data);
+      const res = await axios.post("https://giddy-lime-xerus.cyclic.app/api/g1/register", post);
+      alert("user successfully loggedIn")
+      
     } catch (error) {
-      console.log(error);
+      alert("please Enter Correct Information")
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} id='formdiv'>
       <label>
         name:
         <input type="text" value={name} onChange={handlename} />

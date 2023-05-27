@@ -14,11 +14,11 @@ const Product = ({products}) => {
  
     <Link className='productCard' to={`/product/${products._id}`}>
 <img src={products.image} alt='something'/>
-<h1>{products.name}</h1>
+<h3>{products.name}</h3>
 <p>Place : {products.place}</p>
 <p>Date :{formattedDate}</p>
+<p>Price :{products.price}</p>
 
-<span>Max. Entry: {products.limit} Groups</span>
 
     </Link>
   )

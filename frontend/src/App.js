@@ -1,5 +1,6 @@
 import React from 'react';
 import {useEffect} from "react"
+
 import './App.css';
 import Header from "./components/layout/Header/Header.js"
 import Footer from "./components/layout/Footer/Footer.js"
@@ -12,8 +13,9 @@ import Games from './components/Product/Games';
 
 import SignUp from './components/user/Signup';
 import Login from './components/user/Login';
+import Post from './components/Product/Post';
 
-
+import { PrivateRoute } from './components/user/PrivateRoute';
 
 function App() {
   
@@ -33,10 +35,11 @@ function App() {
    
  <Route extact path="/" element={<Home/>}/>
  <Route extact path="/product/:id" element={<ProductDetails/>}/>
- <Route extact path="/products" element={<Games/>}/>
+ <Route extact path="/products"  element={<Games/>}/>
+
  <Route extact path="/login" element={<Login/>}/>
  <Route extact path="/signup" element={<SignUp/>}/>
- 
+ <Route extact path="/post" element={<Post/>}/>
 
  </Routes>
       <Footer/>

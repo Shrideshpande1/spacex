@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import {Link} from "react-router-dom"
+import axios from 'axios';
+import "./Signup.css"
 function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -14,12 +16,23 @@ function Login() {
 
   const handleSubmit = event => {
     event.preventDefault();
-    console.log(`Submitting username ${username} and password ${password}`);
-    // Add your login logic here
+   const payload={
+    email:username,
+    password:password
+   }
+   axios.post("https://giddy-lime-xerus.cyclic.app/api/g1/login",payload)
+   .then(res=>{
+    alert("logged in ")
+   })
+   .catch(res => {
+    alert("wrong credentials")
+        });
   };
 
+
+
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} id='formdiv'>
       <label>
         Username:
         <input type="text" value={username} onChange={handleUsernameChange} />
