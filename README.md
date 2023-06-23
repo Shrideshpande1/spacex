@@ -8,11 +8,8 @@
 
 <br/>
 
-<h4 align="center">Deployed On:</h4>
 
 
-
- <h2 align="center">🖥️ Tech Stack</h2>
 
 
 <h3 align="center">Deployment</h3> 
