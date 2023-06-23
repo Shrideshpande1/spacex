@@ -26,18 +26,20 @@ function SignUp() {
  
   const handleSubmit = async (e) => {
     const post = {
-      email,
-      password,
-      name
+      email:email,
+      password:password,
+      name:name
     };
-    try {
-      const res = await axios.post("https://giddy-lime-xerus.cyclic.app/api/g1/register", post);
-      alert("user successfully loggedIn")
-      
-    } catch (error) {
-      alert("please Enter Correct Information")
-    }
-  };
+    console.log(post)
+  
+    await axios.post("https://giddy-lime-xerus.cyclic.app/api/g1/register", post)
+    .then(res=>{
+      alert("logged in ")
+     })
+     .catch(res => {
+      alert("wrong credentials")
+          });
+  }
 
   return (
     <form onSubmit={handleSubmit} id='formdiv'>

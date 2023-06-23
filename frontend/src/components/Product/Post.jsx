@@ -94,8 +94,8 @@ const Post = () => {
   const fetchData = async () => {
     setIsLoading(true);
     try {
-      const response = await axios.get("https://giddy-lime-xerus.cyclic.app/api/g1/games"); // Replace with your API endpoint
-      setData(response.data.games);
+      const response = await axios.get("https://api.spacexdata.com/v3/launches"); // Replace with your API endpoint
+      setData(response.data);
     } catch (error) {
       setError("Error fetching data");
     } finally {
@@ -109,7 +109,7 @@ const Post = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`https://giddy-lime-xerus.cyclic.app/api/g1/games/${id}`);
+      await axios.delete(`https://api.spacexdata.com/v3/launches/${id}`);
       fetchData();
     } catch (error) {
       setError("Error deleting data");
@@ -213,36 +213,27 @@ const Post = () => {
           data.map((ele) => (
             <div className="ProductDetails">
               <div>
-                <img src={ele.image} alt={ele.name} />
+                <img src={ele.links.mission_patch} alt={ele.name} />
               </div>
               <div className="detailsBlock-1">
-                <h1>{ele.name}</h1>
+                <h1>{ele.mission_name}</h1>
               </div>
               <div className="detailsBlock-2">
                 <p>
                   {" "}
                   <strong>Status : </strong>
-                  {ele.status}
+                  {`${ele.launch_success}`}
                 </p>
+             
                 <p>
-                  {" "}
-                  <strong>description : </strong>
-                  {ele.description}
-                </p>
-                <p>
-                  <strong>Place :</strong> {ele.place}
+                  <strong>Launch Place :</strong> {ele.launch_site.site_name}
                 </p>
 
-                <p>
-                  <strong> Colour:</strong> {ele.color}
-                </p>
-                <p>
-                  <strong> Mileage:</strong> {ele.mileage}/lit
-                </p>
+              
               </div>
               <div>
-                <button onClick={() => handleDelete(ele._id)}>Delete</button>
-                <button onClick={() => handleUpdate(ele._id)}>Update</button>
+                <button onClick={() => handleDelete(ele.flight_number)}>Delete</button>
+                <button onClick={() => handleUpdate(ele.flight_number)}>Update</button>
 
                 {selectedItemId === ele._id && (
                   <form onSubmit={(e) => handleFormSubmit(e, ele._id)}>

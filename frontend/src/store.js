@@ -10,6 +10,7 @@ products:productReducer,
 productDetails:productDetailsReducer,
 })
 
+
 let initialState={}
 
 const middleware=[thunk]

@@ -6,18 +6,21 @@ import * as moment from 'moment';
 
 const Product = ({products}) => {
 
-  const dateFromDB = products.date
 
-  const formattedDate = moment(dateFromDB).utc().format('DD/MM/YY')
 
   return (
  
-    <Link className='productCard' to={`/product/${products._id}`}>
-<img src={products.image} alt='something'/>
-<h3>{products.name}</h3>
-<p>Place : {products.place}</p>
-<p>Date :{formattedDate}</p>
-<p>Price :{products.price}</p>
+    <Link className='productCard' to={`/product/${products.flight_number}`}>
+<img src={products.links.mission_patch} alt='something'/>
+<h3>{products.mission_name}</h3>
+<p>Launch Site : {products.launch_site.site_name}</p>
+<p>Launch Date :{products.launch_date_local}</p>
+
+
+<p>
+                <strong> launch success
+:</strong> {`${products.launch_success}`}
+              </p>
 
 
     </Link>

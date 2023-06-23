@@ -10,10 +10,12 @@ const Games = () => {
   const dispatch = useDispatch();
   const { products, loading } = useSelector((state) => state.products);
   const [keyword, setKeyword] = useState("");
-  const [price, setPrice] = useState([0, 1000000]);
+  const [price, setPrice] = useState([2000, 2022]);
   const [selectedOption, setSelectedOption] = useState("");
   const [color, setColor] = useState("");
   const [mile, setMile] = useState("");
+  const [page, setPage] = useState(1)
+
 
   const searchSubmitHandler = (e) => {
     e.preventDefault();
@@ -31,17 +33,19 @@ const Games = () => {
   const priceHandler = (event, newprice) => {
     setPrice(newprice);
   };
-  //,selectedOption,color
+
   useEffect(() => {
-    dispatch(getProduct(keyword, selectedOption, color, mile, price));
-  }, [dispatch, keyword, selectedOption, color, mile, price]);
+    dispatch(getProduct(keyword, selectedOption, page));
+  }, [dispatch, keyword, selectedOption, page]);
+
+
   return (
     <Fragment>
       <Fragment>
         <form className="searchBox" onSubmit={searchSubmitHandler}>
           <input
             type="text"
-            placeholder="Search a car ..."
+            placeholder="Search a mission write correct name..."
             onChange={(e) => setKeyword(e.target.value)}
           />
         </form>
@@ -49,43 +53,23 @@ const Games = () => {
 
       <div className="filterBox">
         <select value={selectedOption} onChange={handleOptionChange}>
-          <option value="">Select an option</option>
-          <option value="second-hand">second-hand</option>
-          <option value="brand-new">brand-new</option>
+          <option value="">Select an status</option>
+          <option value="true">Launch Successfull</option>
+          <option value="false">Launch Unuccessfull</option>
         </select>
 
-        <select value={color} onChange={handleColor}>
-          <option value="">Select Colour</option>
-          <option value="black">black</option>
-          <option value="white">white</option>
-          <option value="red">red</option>
-        </select>
 
-        <select value={mile} onChange={handlemile}>
-          <option value="">Select Mileage</option>
-          <option value="12">12 KM/L</option>
-          <option value="13">13 KM/L</option>
-          <option value="14">14 KM/L</option>
-        </select>
 
-        <div className="filterBox">
-          <Typography>price</Typography>
-          <Slider
-            value={price}
-            onChange={priceHandler}
-            valueLabelDisplay="auto"
-            aria-labelledby="range-slider"
-            min={0}
-            max={1000000}
-          />
-        </div>
+
+
+
       </div>
 
       {loading ? (
         <Loader />
       ) : (
         <Fragment>
-          <h2 className="productsHeading">CARS</h2>
+          <h2 className="productsHeading">MISSIONS</h2>
 
           <div className="products">
             {products &&
@@ -95,6 +79,11 @@ const Games = () => {
           </div>
         </Fragment>
       )}
+      <div style={{ display: 'flex', margin: 'auto', width: "100%", justifyContent: "center", gap: "10px" }}>
+        <button disabled={page <= 1} onClick={() => { setPage(page - 1) }}>-</button>
+        <button>{page}</button>
+        <button onClick={() => { setPage(page + 1) }}>+</button>
+      </div>
     </Fragment>
   );
 };

@@ -9,7 +9,7 @@ import {
 
 export const productReducer =
   (state = { products: [] },
-  action) => {
+    action) => {
     switch (action.type) {
       case ALL_PRODUCT_REQUEST:
         return {
@@ -19,7 +19,7 @@ export const productReducer =
       case ALL_PRODUCT_SUCCESS:
         return {
           loading: false,
-          products: action.payload.games,
+          products: action.payload,
         
         };
       case ALL_PRODUCT_FAIL:
@@ -36,7 +36,7 @@ export const productReducer =
         return state;
     }
   };
-
+ 
 
   export const productDetailsReducer =
   (state = { products: {}},
@@ -50,7 +50,7 @@ export const productReducer =
       case PRODUCT_DETAILS_SUCCESS:
         return {
           loading: false,
-          product: action.payload.game,
+          product: action.payload,
          
         };
       case PRODUCT_DETAILS_FAIL:

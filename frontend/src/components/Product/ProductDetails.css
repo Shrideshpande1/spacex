@@ -6,7 +6,9 @@
   box-sizing: border-box;
   display: flex;
 }
-
+.ProductDetails img{
+  width: 100%;
+}
 .ProductDetails > div {
   width: 100%;
   display: flex;

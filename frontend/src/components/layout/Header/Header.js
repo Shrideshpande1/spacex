@@ -1,6 +1,6 @@
 import React from "react";
 import { ReactNavbar } from "overlay-navbar";
-import logo from "../../../images/logo.png";
+import logo from "../../../images/cursor.png";
 import { MdAccountCircle } from "react-icons/md";
 import { MdSearch } from "react-icons/md";
 import { MdAddShoppingCart } from "react-icons/md";
@@ -12,8 +12,8 @@ const options = {
   logoHoverSize: "10px",
   logoHoverColor: "#eb4034",
   link1Text: "Home",
-  link2Text: "Cars",
-  link3Text: "Add cars",
+  link2Text: "Missions",
+  link3Text: "Add mission",
   link4Text: "About",
   link1Url: "/",
   link2Url: "/products",
@@ -41,7 +41,7 @@ const options = {
 
 
   SearchIconElement: MdSearch,
- 
+
 
   CartIconElement: MdAddShoppingCart,
 };

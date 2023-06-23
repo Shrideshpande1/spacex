@@ -28,50 +28,47 @@ const ProductDetails = () => {
 
   return (
     <>
+{/* 
+<img src={products.links.mission_patch} alt='something'/>
+<h3>{products.mission_name}</h3>
+<p>Launch Site : {products.launch_site.site_name}</p>
+<p>Launch Date :{products.launch_date_local}</p>
+<p>launch failuare details :{products.details}</p> */}
       {product && (
         <Fragment>
           <div className="ProductDetails">
             <div>
-              <img src={product.image} alt={product.name} />
+              <img  src={product.links.mission_patch} alt={product.name} />
             </div>
             <div className="detailsBlock-1">
-              <h1>{product.name}</h1>
+              <h1>{product.mission_name}</h1>
             </div>
             <div className="detailsBlock-2">
               <p>
                 {" "}
-                <strong>Status : </strong>
-                {product.status}
+                <strong>Mission Number : </strong>
+                {product.flight_number}
               </p>
-              <p>
+              {/* <p>
                 {" "}
                 <strong>description : </strong>
-                {product.description}
-              </p>
+                {product.details}
+              </p> */}
               <p>
-                <strong>Place :</strong> {product.place}
+                <strong> launch site
+:</strong> {product.launch_site.site_name
+}
               </p>
 
               <p>
-                <strong> Colour:</strong> {product.color}
+                <strong> launch date local:</strong> {product.launch_date_local}
               </p>
               <p>
-                <strong> Mileage:</strong> {product.mileage}/lit
+                <strong> launch success
+:</strong> {`${product.launch_success}`}
               </p>
             </div>
-            <div className="detailsBlock-3">
-              <h1>
-                {" "}
-                <strong>Key Points : </strong>
-              </h1>
-
-              {product.points &&
-                product.points.map((ele) => (
-                  <div key={ele._id}>
-                    <li>{ele.point}</li>
-                  </div>
-                ))}
-            </div>
+          
           </div>
         </Fragment>
       )}
