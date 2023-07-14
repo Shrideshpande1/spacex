@@ -35,7 +35,7 @@
 
 
 
-NewDeployed Link : https://sage-praline-9410de.netlify.app/
+NewDeployed Link : https://famous-gingersnap-dc7c3f.netlify.app/
 
 
 
